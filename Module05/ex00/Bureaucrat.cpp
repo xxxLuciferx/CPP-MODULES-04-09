@@ -6,20 +6,37 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:55:29 by khaimer           #+#    #+#             */
-/*   Updated: 2023/11/30 15:06:36 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/01/15 13:27:47 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(const std::string& Name, int Grade): Name(Name)
+Bureaucrat::Bureaucrat(): Name(""), Grade(150)
 {
-    if (Grade > 0 && Grade < 151)
-    {
-        this->Grade = Grade;
-    }
-    else
-        
+}
+
+// Bureaucrat::Bureaucrat(const std::string& Name, int Grade): Name(Name)
+// {
+//     if (Grade > 0 && Grade < 151)
+//     {
+//         this->Grade = Grade;
+//     }
+//     else
     
+// }
+
+const std::string Bureaucrat::getName() const
+{
+    return this->Name;
+}
+
+Bureaucrat::~Bureaucrat()
+{
     
+}
+
+int Bureaucrat::getGrade() const
+{
+    return this->Grade;
 }

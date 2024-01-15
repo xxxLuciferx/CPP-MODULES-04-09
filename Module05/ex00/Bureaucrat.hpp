@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:39:14 by khaimer           #+#    #+#             */
-/*   Updated: 2023/11/30 14:58:47 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/01/15 13:25:56 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,19 @@
 
 #include <iostream>
 #include <string>
+#include <exception>
 
 class Bureaucrat
 {
     private :
         const std::string Name;
-        int Grade;
+        int     Grade;
     public :
-        Bureaucrat(const std::string& name, int Grade);
+        Bureaucrat();
+        Bureaucrat(const std::string Name, int Grade);
+
+        const std::string getName() const;
+        int getGrade() const;
         ~Bureaucrat();
 };
 
