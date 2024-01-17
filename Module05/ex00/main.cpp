@@ -1,9 +1,15 @@
 #include "Bureaucrat.hpp"
 
-int main()
-{
-    Bureaucrat khalil;
-    std::cout << khalil.getName() << std::endl;
-    std::cout << khalil.getGrade() << std::endl;
-    // std::cout << "khalil" << std::endl;
+int main() {
+
+    try
+    {
+        Bureaucrat khalil("KHALIL", 0);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+    return 0;
 }

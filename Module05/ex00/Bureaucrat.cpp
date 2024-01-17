@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:55:29 by khaimer           #+#    #+#             */
-/*   Updated: 2024/01/15 13:27:47 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/01/17 18:27:01 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,20 @@ int Bureaucrat::getGrade() const
 {
     return this->Grade;
 }
+
+
+
+Bureaucrat::Bureaucrat(const std::string& Name, int Grade) : Name(Name) 
+{
+    if (Grade < 1)
+        throw GradeTooHighException();
+    else if (Grade > 150)
+        throw GradeTooLowException();
+    this->Grade = Grade;
+}
+
+
+const char* Bureaucrat::GradeTooLowException.what() const throw() 
+{
+    return "Grade too low";
+};
