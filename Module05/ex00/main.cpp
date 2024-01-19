@@ -5,11 +5,13 @@ int main()
     Bureaucrat zz;
     try
     {
-        Bureaucrat khalil("Khalil", 7);
+        Bureaucrat khalil("joyboy", 7);
+        Bureaucrat copy = khalil;
         khalil.decrement();
         khalil.decrement();
         khalil.increment();
         std::cout << khalil;
+        std::cout << copy;
     }
     catch(const std::exception& ex)
     {
