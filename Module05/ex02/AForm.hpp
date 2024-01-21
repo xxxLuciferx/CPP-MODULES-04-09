@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:14:11 by khaimer           #+#    #+#             */
-/*   Updated: 2024/01/21 13:06:15 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/01/21 13:16:31 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ class AForm
         int    get_gradeToSign() const;
         int    get_gradeToExecute() const;
         bool    get_signStatus() const;
+        std::string get_Target() const;
 
         virtual void execute(const Bureaucrat& executor) const = 0;
 

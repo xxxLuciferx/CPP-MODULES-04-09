@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 14:39:14 by khaimer           #+#    #+#             */
-/*   Updated: 2024/01/20 10:40:12 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/01/21 14:21:54 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ class Bureaucrat
         const std::string getName() const;
         int getGrade() const;
         void    signForm(AForm& paper);
+
+        void executeForm(const AForm& form) const;
         
         ~Bureaucrat();
 };

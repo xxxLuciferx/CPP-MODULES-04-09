@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:14:08 by khaimer           #+#    #+#             */
-/*   Updated: 2024/01/21 13:07:26 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/01/21 13:16:37 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ int AForm::get_gradeToExecute() const
 bool    AForm::get_signStatus() const
 {
     return signStatus;
+}
+
+std::string AForm::get_Target() const
+{
+    return target;
 }
 
 void    AForm::beSigned(const Bureaucrat& name)
