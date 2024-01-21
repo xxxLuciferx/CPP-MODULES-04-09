@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:14:08 by khaimer           #+#    #+#             */
-/*   Updated: 2024/01/19 21:45:57 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/01/20 14:22:27 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,24 @@ Form::Form(): name("FillForm"), signStatus(false), gradeToSign(150), gradeToExec
 {
 }
 
+Form::Form(const Form& other) : name(other.name), signStatus(other.signStatus),
+      gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute) 
+{
+    
+}
+
 Form::Form(const std::string form, const int gradeToSign, const int gradeToExecute): name(form), signStatus(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
     if (gradeToSign > 150 || gradeToExecute > 150)
         throw GradeTooLowException();
     else if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
+}
+
+Form& Form::operator=(const Form& other) 
+{
+    (void)other;
+    return *this;
 }
 
 std::string Form::get_name() const
