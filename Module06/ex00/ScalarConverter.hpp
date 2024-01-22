@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/21 15:03:42 by khaimer           #+#    #+#             */
-/*   Updated: 2024/01/22 16:27:24 by khaimer          ###   ########.fr       */
+/*   Created: 2024/01/22 16:28:11 by khaimer           #+#    #+#             */
+/*   Updated: 2024/01/22 20:43:36 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Intern.hpp"
+#pragma once
+
 #include <iostream>
+#include <string>
 
-int main() 
+class ScalarConverter
 {
-    Intern intern;
-
-    AForm* form1 = intern.makeForm("presidential pardonm", "Bender");
-    AForm* form2 = intern.makeForm("presidential pardon", "Fry");
-    AForm* form3 = intern.makeForm("robotomy request", "Leela");
-
-    Intern someRandomIntern;
-    AForm* rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    system("leaks intern");
-    return 0;
-}
+    public :
+        static void convert(const std::string& value);
+    private:
+        ScalarConverter();
+};

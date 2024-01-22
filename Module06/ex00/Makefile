@@ -1,7 +1,22 @@
-name = khalil
+NAME = main
 
-cflags = -Wall -Wextra -Werror
+CC = c++
 
-cc = c++
+FLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC = main
+RM = rm -rf
+
+SRC = ScalarConverter.cpp main.cpp
+
+all : $(NAME)
+
+$(NAME) : $(SRC)
+	$(CC) $(FLAGS) $(SRC) -o $(NAME)
+
+clean :
+	$(RM) $(NAME)
+
+fclean :
+	$(RM) $(NAME)
+
+re : clean all
