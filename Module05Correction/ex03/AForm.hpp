@@ -6,13 +6,14 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 18:14:11 by khaimer           #+#    #+#             */
-/*   Updated: 2024/01/21 20:00:59 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/01/22 01:17:30 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Bureaucrat.hpp"
+#include <iostream>
 
 class Bureaucrat;
 
