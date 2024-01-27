@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:28:21 by khaimer           #+#    #+#             */
-/*   Updated: 2024/01/27 11:57:40 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/01/27 15:01:54 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void ScalarConverter::convert(const std::string& value)
 
     try {
         float floatValue = std::stof(value);
-        // std::cout << std::fixed << std::setprecision(1) << floatValue << std::endl;
         std::cout << "float: " << std::fixed << std::setprecision(1) << floatValue << "f" << std::endl;
     } catch (...) {
         std::cout << "float: impossible" << std::endl;
