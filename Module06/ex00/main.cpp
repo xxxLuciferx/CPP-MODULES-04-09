@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 16:28:11 by khaimer           #+#    #+#             */
-/*   Updated: 2024/01/27 10:04:30 by khaimer          ###   ########.fr       */
+/*   Created: 2024/01/27 11:39:28 by khaimer           #+#    #+#             */
+/*   Updated: 2024/01/27 11:40:51 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "ScalarConverter.hpp"
 
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <limits>
-#include <iomanip>
-
-class ScalarConverter
+int main(int ac, char **av)
 {
-    public :
-        ScalarConverter(const ScalarConverter& value);
-        static void convert(const std::string& value);
-
-        ~ScalarConverter();
-        ScalarConverter &operator=(const ScalarConverter& ref);
-    private:
-        ScalarConverter();
-};
+    if (ac != 2)
+        std::cout << "Wrong number of arguments" << std::endl;
+    else
+        ScalarConverter::convert(av[1]);
+    return (0);
+}
