@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 16:24:13 by khaimer           #+#    #+#             */
-/*   Updated: 2024/01/30 16:24:55 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/01/30 17:43:23 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 class Base
 {
-    virtual ~Base();
+    public:
+        virtual ~Base();
 };
