@@ -1,4 +1,4 @@
-NAME = main
+NAME = convert
 
 CC = c++
 
