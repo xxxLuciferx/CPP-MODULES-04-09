@@ -1,4 +1,4 @@
-NAME = Serializer
+NAME = main
 
 CC = c++
 
@@ -6,7 +6,7 @@ FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
-SRC = Serializer.cpp main.cpp
+SRC = Func.cpp
 
 all : $(NAME)
 
