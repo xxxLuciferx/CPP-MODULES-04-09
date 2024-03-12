@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:28:21 by khaimer           #+#    #+#             */
-/*   Updated: 2024/02/22 15:26:46 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/12 19:56:34 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,7 @@ void	handle_pseudo(std::string& input)
 		std::cout << " float  : -inff" << std::endl;
 		std::cout << " double : -inf" << std::endl;
 	}
-	else if (input == "+inff" || input == "+inf")
+	else if (input == "inf" || input == "+inff" || input == "+inf")
 	{
 		std::cout << " char   : impossible " << std::endl;
 		std::cout << " int    : impossible"  << std::endl;
