@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 15:26:49 by khaimer           #+#    #+#             */
-/*   Updated: 2024/02/22 15:27:25 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/13 17:13:27 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int main(int argc,char **argv)
 {
+
 	if (argc == 2)
 	{
 		std::string input = argv[1];

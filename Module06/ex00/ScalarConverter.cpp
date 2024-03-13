@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 16:28:21 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/12 19:56:34 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/13 17:53:10 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <limits> 
 #include <iomanip>
 #include <sstream>
+#include <stdlib.h>
 
 
 ScalarConverter::ScalarConverter()
@@ -81,6 +82,17 @@ bool type_double(const std::string& input)
 	return (line >> value) && (line.eof());
 }
 
+bool type_float(std::string& input)
+{
+	char *ptr;
+	strtod(input.c_str(), &ptr);
+	if (*ptr != 'f' || strlen(ptr) > 1)
+		return false;
+	if (!type_double(input))
+		return true;
+	return false;
+}
+
 void	print_char(double value)
 {
 	int	res = static_cast<int>(value); 
@@ -97,13 +109,6 @@ bool double_range(double value)
     if (value < intMin || value > intMax)
         return true; 
     return false;
-}
-
-bool type_float(std::string& input)
-{
-	if (!type_double(input))
-		return false;
-	return true;
 }
 
 void	print_int(double value)
@@ -145,14 +150,16 @@ void	print(double value)
 
 void	ScalarConverter::convert(std::string& input)
 {
-
 	std::stringstream number;
 
 	size_t fpos = input.find('f');
+	// std::cout << fpos << "POSPOPS" << std::endl;
 	if (fpos != std::string::npos)
 	{
 		double res;
 		std::string number_part = input.substr(0, fpos);
+		// std::cout << number_part << std::endl;
+		// std::cout << "TESTING" << std::endl;
 		number << number_part;
 		number >> res;
 		print(res);
