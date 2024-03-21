@@ -6,15 +6,15 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 17:33:22 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/21 16:04:02 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/21 16:30:32 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 
 
-template <typename arr>
-void    iter(arr *array, size_t length, void (*func)(arr&))
+template <typename arr, typename F>
+void    iter(arr *array, size_t length, void (*func)(F))
 {
     for (size_t i = 0; i < length; i++)
         func(array[i]);
@@ -35,6 +35,6 @@ int main()
     iter( tab, 5, print );
     iter( tab2, 5, print );
     // iter( tab, 5, print<const int> );
-    iter( tab2, 5, print<Awesome> );
+    // iter( tab2, 5, print<Awesome> ); 
     return 0;
 }
