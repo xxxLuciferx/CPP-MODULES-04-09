@@ -6,14 +6,20 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:23:28 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/22 02:11:05 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/22 15:49:08 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
+
 int main()
 {
-    Array<char> khalil;
-    // std::cout << khalil.elements << std::endl;
+    Array<int> arr1(5);
+    for (std::size_t i = 0; i < arr1.len(); i++)
+    {
+        arr1[i] = i * 10;
+        std::cout << "arr1[" << i << "] = " << arr1[i] << std::endl;
+    }
+    return 0;
 }

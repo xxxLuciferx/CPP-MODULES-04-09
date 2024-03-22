@@ -6,13 +6,14 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 17:23:51 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/22 02:14:44 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/22 15:47:09 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <exception>
 
 template <typename T>
 class Array
@@ -21,7 +22,7 @@ class Array
 		T* elements;
 		unsigned int size;
 	public:
-		Array():elements(NULL) ,size(0);
+		Array():elements(NULL) ,size(0){}
     	Array(unsigned int n) : size(n)
     	{
     	    elements = new T[n];
@@ -42,11 +43,11 @@ class Array
     	{
 			if (this == &other)
 				return (*this);
-			delete[] element;
-			size_ = other.size_;
-			element = new T[size_];
-			for (unsigned int i = 0; i < size_ ; i++)
-				element[i] = other.element[i];
+			delete[] elements;
+			size = other.size;
+			elements = new T[size];
+			for (unsigned int i = 0; i < size ; i++)
+				elements[i] = other.elements[i];
 			return (*this);
     	}
 
@@ -55,11 +56,11 @@ class Array
     	    delete[] elements;
     	}
 
-    	T& operator[](size_t index)
+    	T& operator[](std::size_t index)
     	{
-    	    if (i < 0 || i >= size)
+    	    if (index >= size)
 				throw std::exception();
-			return (element[i]);
+			return (elements[index]);
     	}
 
     size_t len() const
