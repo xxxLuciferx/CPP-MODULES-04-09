@@ -1,4 +1,4 @@
-NAME = arr
+NAME = easy
 
 CC = c++
 
