@@ -5,34 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/22 17:39:18 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/23 00:50:43 by khaimer          ###   ########.fr       */
+/*   Created: 2024/03/23 00:52:41 by khaimer           #+#    #+#             */
+/*   Updated: 2024/03/23 21:46:58 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
-#include <iostream>
-
-
-template <typename T>
-int    easyfind(T *name, int number)
-{   
-        for (size_t i = 0; i < 4; i++)
-        {
-            if (number == name[i])
-                return name[i];
-        }   
-        return -1;
-}
-
+#include "Span.hpp"
 
 int main()
 {
-    char khalil[4] = {'0', '3', 'F', '9'};
-    char number = 'F';
+    std::vector<unsigned int> myvector;
+    unsigned int value = 4294967295;
 
-    int result = easyfind(khalil, number);
-    std::cout << (char)result << std::endl;
+    myvector.push_back(10);
+    myvector.push_back(20);
+    myvector.push_back(30);
+    myvector.push_back(value);
     
-    return 0;
+    std::cout << "khalil" << std::endl;
+    for (size_t i = 0; i < myvector.size(); i++)
+    {
+        std::cout << myvector[i] << " ";
+    }
+    
 }
