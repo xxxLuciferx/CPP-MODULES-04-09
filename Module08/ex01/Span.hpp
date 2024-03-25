@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:46:34 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/23 22:37:39 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/24 18:03:10 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 #include <vector>
 #include <iostream>
+#include<exception>
+#include <algorithm>
 
 class Span
 {
     private:
-        std::vector<unsigned int> array;
+        std::vector<int> array;
         unsigned int value;
     public:
         Span();
@@ -27,8 +29,19 @@ class Span
         Span& operator=(const Span& other);
         ~Span();
 
-        addNumbers(int first, int last);
+        class Full : public std::exception 
+        {
+            public:
+                const char* what() const throw() 
+                {
+                    return "errrror , vector is fulll\n";
+                }
+        };
+
+        void    addNumbers(int number);
 
         
-    
+        int     longestSpan();
+        int     shortestSpan();
+
 };

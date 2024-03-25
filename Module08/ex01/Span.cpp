@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 22:09:51 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/23 22:37:25 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/25 00:43:06 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Span::Span() : array(0), value(0){}
 
-Span::Span(unsigned int number) : array(std::vector<unsigned int>()), value(number){}
+Span::Span(unsigned int number) : value(number){}
 
 Span::Span(const Span& copy)
 {
@@ -33,11 +33,24 @@ Span& Span::operator=(const Span& other)
 
 Span::~Span() {}
 
-void	Span::addNumbers(int first, int last)
+
+Span::~Span() {}
+
+void	Span::addNumbers(int number)
 {
-	int num_toadd = std::abs(last - first + 1);
-	if (this->my_vector.size()  + num_toadd > this->N)
-		throw std::runtime_error("size out of range permited");
-	for (int i = first ; i <= last ; i++)
-		this->addNumber(i);
+    try
+    {
+        if(array.size() < value )
+            array.push_back(number);
+        else
+            throw Span::Full(); 
+    }
 }
+
+
+int Span::longestSpan()
+{
+    std::sort(array.begin(), array.begin() + array.size());
+    return  (array[array.size() - 1] - array[0]);
+}
+
