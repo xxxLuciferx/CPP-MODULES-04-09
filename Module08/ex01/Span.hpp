@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:46:34 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/25 20:25:09 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/26 16:19:17 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@
 
 class Span
 {
-    private:
+    // private:
+    public:
         std::vector<int> array;
         unsigned int value;
-    public:
         Span();
         Span(unsigned int number);
         Span(const Span& copy);

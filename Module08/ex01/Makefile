@@ -6,7 +6,7 @@ FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
-SRC = main.cpp
+SRC = main.cpp Span.cpp
 
 all : $(NAME)
 

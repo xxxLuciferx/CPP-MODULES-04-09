@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 22:09:51 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/25 20:38:02 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/26 15:31:05 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ Span& Span::operator=(const Span& other)
     }
     return *this;
 }
-
-Span::~Span() {}
-
 
 Span::~Span() {}
 
