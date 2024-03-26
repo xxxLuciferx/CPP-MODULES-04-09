@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:46:34 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/24 18:03:10 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/25 20:25:09 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,15 @@ class Span
             public:
                 const char* what() const throw() 
                 {
-                    return "errrror , vector is fulll\n";
+                    return " errrror , vector is fulll\n";
+                }
+        };
+        class Size : public std::exception 
+        {
+            public:
+                const char* what() const throw() 
+                {
+                    return " no span can be found.";
                 }
         };
 
