@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:46:34 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/28 01:43:17 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/28 22:46:17 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 class Span
 {
     private:
-        unsigned int value;
         std::vector<int> array;
+        unsigned int value;
     public:
         Span();
         Span(unsigned int number);
@@ -34,7 +34,7 @@ class Span
             public:
                 const char* what() const throw() 
                 {
-                    return " errrror , vector is fulll\n";
+                    return "Error, Vector is full\n";
                 }
         };
         class Size : public std::exception 
@@ -42,7 +42,7 @@ class Span
             public:
                 const char* what() const throw() 
                 {
-                    return " no span can be found.";
+                    return "No span can be found.";
                 }
         };
 
@@ -51,6 +51,7 @@ class Span
         
         int     longestSpan();
         int     shortestSpan();
+
         void	addMultiple(int first, int last);
 
 };

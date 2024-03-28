@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:49:41 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/28 17:03:22 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/28 22:36:12 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ template < typename T>
 class MutantStack : public std::stack<T>
 {
 	private :
-		std::stack<T>  stack_;
+		std::stack<T>  stack;
 	public :
 		MutantStack() {};
 		~MutantStack() {};

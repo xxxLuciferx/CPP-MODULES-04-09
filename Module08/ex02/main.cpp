@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 01:49:24 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/28 17:03:33 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/28 22:35:56 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,49 +15,37 @@
 
 int main()
 {
-	MutantStack<int> mstack;
-	mstack.push(5);
-	mstack.push(17);
-	std::cout << mstack.top() << std::endl;
-	mstack.pop();
-	std::cout << mstack.size() << std::endl;
-	mstack.push(3);
-	mstack.push(5);
-	mstack.push(737);
-	mstack.push(0);
-	MutantStack<int>::iterator it = mstack.begin();
-	MutantStack<int>::iterator ite = mstack.end();
-	++it;
-	--it;
-	while (it != ite)
-	{
-		std::cout << *it << std::endl;
-		++it;
-	}
-	std::stack<int> s(mstack);
-	std::cout << "--------------------------------------------" << std::endl;
-	{
+	MutantStack<int> khalil;
+	MutantStack<int>::iterator tp1;
+	MutantStack<int>::iterator tp2;
 
-        std::list<int> mstack;
-        mstack.push_back(5);
-        mstack.push_back(17);
-        std::cout << mstack.back() << std::endl;
-        mstack.pop_back();
-        std::cout << mstack.size() << std::endl;
-        mstack.push_back(3);
-        mstack.push_back(5);
-        mstack.push_back(737);
-        mstack.push_back(0);
-        std::list<int>::iterator it = mstack.begin();
-        std::list<int>::iterator ite = mstack.end();
-        ++it;
-        --it;
-        while (it != ite)
-        {
-        std::cout << *it << std::endl;
-        ++it;
-        }
-        std::list<int> s = mstack;
-    }
+	khalil.push(5);
+	khalil.push(6);
+	khalil.push(33);
+	khalil.push(78);
+	khalil.push(78);
+	khalil.push(478);
+	khalil.push(3478);
+	khalil.push(738);
+	std::cout << "> " << khalil.size() << " <" << std::endl;
+	// size_t i = khalil.size();
+	// while (i)
+	// {
+	// 	std::cout << khalil.top() << std::endl;
+	// 	khalil.pop();
+	// 	i--;
+	// }
+	std::cout << "        --------" << std::endl;
+	tp1 = khalil.begin();
+	tp2 = khalil.end();
+	while (tp2 != tp1)
+	{
+		std::cout << *tp1 << " ";
+		tp1++;
+	}
+	
+	
+	
+	
 	return 0;
 }
