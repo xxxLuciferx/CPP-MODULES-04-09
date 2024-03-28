@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 00:52:41 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/26 16:33:20 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/28 01:43:01 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,21 @@ int main()
         // // A.addNumbers(11000);
         // std::cout << "Shortest span " << A.shortestSpan() << std::endl;
     
-        // // std::cout <<  A.value << std::endl;
-        // for (size_t i = 0; i < A.array.size(); i++)
-        // {
-        //     std::cout << A.array[i] << " ";
-        // }
-        Span sp = Span(5);
+        Span sp = Span(500);
         sp.addNumber(6);
         sp.addNumber(3);
         sp.addNumber(17);
         sp.addNumber(9);
         sp.addNumber(11);
-        std::cout << sp.shortestSpan() << std::endl;
-        std::cout << sp.longestSpan() << std::endl;
+        // std::cout << sp.shortestSpan() << std::endl;
+        // std::cout << sp.longestSpan() << std::endl;
+        sp.addMultiple(5, 15);
+        // std::cout <<  A.value << std::endl;
+        for (size_t i = 0; i < sp.array.size(); i++)
+        {
+            std::cout << sp.array[i] << " ";
+        }
+        
         return 0;
     }
     catch(const std::exception& e)

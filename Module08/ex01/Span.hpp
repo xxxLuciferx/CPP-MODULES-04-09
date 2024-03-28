@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:46:34 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/28 01:24:20 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/28 01:43:17 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 class Span
 {
     private:
-        std::vector<int> array;
         unsigned int value;
+        std::vector<int> array;
     public:
         Span();
         Span(unsigned int number);
@@ -51,6 +51,6 @@ class Span
         
         int     longestSpan();
         int     shortestSpan();
-        // void    ad
+        void	addMultiple(int first, int last);
 
 };
