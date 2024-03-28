@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 22:09:51 by khaimer           #+#    #+#             */
-/*   Updated: 2024/03/26 15:31:05 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/03/26 16:33:36 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Span& Span::operator=(const Span& other)
 
 Span::~Span() {}
 
-void	Span::addNumbers(int number)
+void	Span::addNumber(int number)
 {
         if(array.size() < value )
             array.push_back(number);
