@@ -1,4 +1,4 @@
-NAME = span
+NAME = meaw
 
 CC = c++
 
@@ -6,7 +6,7 @@ FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
-SRC = main.cpp Span.cpp
+SRC = main.cpp
 
 all : $(NAME)
 
