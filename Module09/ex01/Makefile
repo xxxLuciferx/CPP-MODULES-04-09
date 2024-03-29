@@ -1,4 +1,4 @@
-NAME = easy
+NAME = btc
 
 CC = c++
 
