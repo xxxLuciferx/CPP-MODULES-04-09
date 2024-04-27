@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:34:31 by khaimer           #+#    #+#             */
-/*   Updated: 2024/04/27 00:51:29 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/04/27 17:36:15 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,19 @@
 
 int main(int ac, char **av)
 {
-    std::vector<int> vec;
-    std::vector<std::vector<int>> matrice;
     
+    PmergeMe khalil;
+    // std::vector<int> vec;
     if (ac > 1)
     {
-        // vec.push_back(atoi[i]);
-        // matrice.pop_back(vec);
-        vec.clear();
-        std::string str;
-	    for (int i = 1; i < ac; i++)
-	    {
-	    	str += av[i];
-	    	if (i < ac - 1)
-	    		str += " ";
-	    }
-        std::cout << str;
-        
+        try
+        {
+            khalil.parsing(ac, av);
+        }
+        catch(const std::exception& e)
+        {
+            std::cerr << e.what() << '\n';
+        }
     }
     else
     {

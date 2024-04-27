@@ -1,0 +1,164 @@
+Sure, let's go step by step through how the Ford-Johnson merge-insertion sort would work on the array 
+11
+,
+9
+,
+2
+,
+0
+,
+6
+,
+1
+,
+18
+,
+5
+,
+14
+11,9,2,0,6,1,18,5,14.
+
+Splitting into Pairs: Initially, we pair up the elements as follows: 
+(
+11
+,
+9
+)
+,
+(
+2
+,
+0
+)
+,
+(
+6
+,
+1
+)
+,
+(
+18
+,
+5
+)
+,
+14
+(11,9),(2,0),(6,1),(18,5),14. Since we have an odd number of elements, the last element 14 remains unpaired for now.
+Sorting Pairs: Now, we sort each pair within the array: 
+(
+9
+,
+11
+)
+,
+(
+0
+,
+2
+)
+,
+(
+1
+,
+6
+)
+,
+(
+5
+,
+18
+)
+,
+14
+(9,11),(0,2),(1,6),(5,18),14.
+Recursively Sorting Pairs: Next, we recursively sort the pairs based on their highest value. This step rearranges the pairs like this: 
+(
+0
+,
+2
+)
+,
+(
+1
+,
+6
+)
+,
+(
+5
+,
+18
+)
+,
+(
+9
+,
+11
+)
+,
+14
+(0,2),(1,6),(5,18),(9,11),14.
+We have the main chain: 
+0
+,
+1
+,
+5
+,
+9
+0,1,5,9.
+And the pend elements: 
+2
+,
+6
+,
+18
+,
+11
+,
+14
+2,6,18,11,14.
+Inserting Pend Elements: We insert the pend elements back into the main chain using a specific insertion pattern based on Jacobsthal numbers.
+First, we insert 2 into {0, 1}, giving us {0, 1, 2, 5, 9}.
+Then we insert 6 into {0, 1, 5}, resulting in {0, 1, 2, 5, 6, 9}.
+Next, we insert 18 into {0, 1, 2, 5}, giving {0, 1, 2, 5, 6, 9, 18}.
+Inserting 11 into {0, 1, 2, 5, 6} gives {0, 1, 2, 5, 6, 9, 11, 18}.
+Finally, inserting 14 into {0, 1, 2, 5, 6, 9, 11} gives us the sorted array {0, 1, 2, 5, 6, 9, 11, 14, 18}.
+So, the sorted array using the Ford-Johnson merge-insertion sort on 
+11
+,
+9
+,
+2
+,
+0
+,
+6
+,
+1
+,
+18
+,
+5
+,
+14
+11,9,2,0,6,1,18,5,14 is 
+0
+,
+1
+,
+2
+,
+5
+,
+6
+,
+9
+,
+11
+,
+14
+,
+18
+0,1,2,5,6,9,11,14,18.
