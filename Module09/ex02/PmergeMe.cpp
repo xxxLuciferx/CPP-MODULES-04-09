@@ -6,33 +6,35 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:34:35 by khaimer           #+#    #+#             */
-/*   Updated: 2024/04/27 19:14:06 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/04/27 21:19:08 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-    // for (std::vector<std::vector <int> >::iterator outerIt = vectors.begin(); outerIt != vectors.end(); ++outerIt) 
-    // {
-    //     for (std::vector<int>::iterator innerIt = outerIt->begin(); innerIt != outerIt->end(); ++innerIt) 
-    //     {
-    //         std::cout << *innerIt << " ";
-    //     }
 
 void    PmergeMe::recursive_function()
 {
     std::vector< std::vector<int> > tmp;
-    int i = 0;
+    // int i = 0;
     // std::cout << "\n" << this->Before.back() << " This out\n";
     if (vectors.size() % 2 == 1)
     {
         this->Remain.push_back(this->Before.back());
-        vectors.pop_back();  
+        vectors.pop_back();
     }
-    while (vectors.begin() + i < vectors.end())
+    for (std::vector<std::vector <int> >::iterator vec_iterator = vectors.begin(); vec_iterator != vectors.end(); ++vec_iterator) 
     {
-        
+        for (std::vector<int>::iterator innerIt = vec_iterator->begin(); innerIt != vec_iterator->end(); ++innerIt) 
+        {
+            
+        }
     }
+    // while ()
+    // {
+         
+    //     i++;
+    // }
     
     
     
