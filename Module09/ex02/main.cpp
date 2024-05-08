@@ -6,33 +6,24 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:34:31 by khaimer           #+#    #+#             */
-/*   Updated: 2024/05/08 18:21:29 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/05/08 21:27:15 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 
-void    MergeInsert_vec(PmergeMe khalil)
-{
-    std::cout << "Let's Start having fun\n";
-    (void)khalil;
-}
-
-
 int main(int ac, char **av)
 {
-    
-    
     if (ac > 1)
     {
         try
         {
-            PmergeMe khalil;
+            PmergeMe Data;
             
-            khalil.parsing(ac, av);
-            khalil.print_stack(khalil);
-            MergeInsert_vec(khalil);
+            Data.parsing(ac, av);
+            Data.print_stack(Data);
+            Data.MergeInsert_vec(Data);
         }
         catch(const std::exception& e)
         {
@@ -41,7 +32,7 @@ int main(int ac, char **av)
     }
     else
     {
-        std::cerr << "Argument sequence incorrect\n";
+        std::cerr << "Incorrect argument sequence \n";
         return 1;
     }
     return 0;
