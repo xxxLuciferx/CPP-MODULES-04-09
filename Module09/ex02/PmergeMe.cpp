@@ -6,26 +6,11 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:34:35 by khaimer           #+#    #+#             */
-/*   Updated: 2024/05/06 20:23:02 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/05/08 18:21:20 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-
-// void PmergeMe::recursive_function()
-// {
-//     std::vector<std::vector<int> > tmp; // Temporary vector of vectors
-
-//     if (vectors.size() % 2 == 1)
-//     {
-//         int last = this->Before.back();
-//         this->Remain.push_back(last);
-//         vectors.pop_back();
-//     }
-        
-    
-// }
-
 
 void check_for_dup(std::vector<int> vec)
 {
@@ -41,7 +26,7 @@ void check_for_dup(std::vector<int> vec)
 	}
 }
 
-void    print_before_line(PmergeMe Data)
+void    PmergeMe::print_stack(PmergeMe Data)
 {
     std::vector<int> tmp;
     
@@ -50,11 +35,12 @@ void    print_before_line(PmergeMe Data)
     {
         std::cout << *it << " "; //print
         tmp.push_back(*it);
-        Data.vectors.push_back(tmp); //make every int in a vectore and push it to "vectors"
+        Data.vectors.push_back(tmp); //make every int in a vector and push it to "vectors"
         tmp.clear();
     }
-    
+	std::cout << std::endl;
 }
+
 void    PmergeMe::parsing(int ac, char **av)
 {
     //Adding integer to vectore of int "Before"

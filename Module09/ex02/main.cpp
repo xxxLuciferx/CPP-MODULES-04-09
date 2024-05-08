@@ -6,37 +6,33 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:34:31 by khaimer           #+#    #+#             */
-/*   Updated: 2024/05/06 20:21:16 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/05/08 18:21:29 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-void    print_before_line()
+
+void    MergeInsert_vec(PmergeMe khalil)
 {
-    // std::vector<int> tmp;
-    
-    std::cout << "Before: ";
-    // for (std::vector<int >::iterator it = this->Before.begin() ; it != this->Before.end(); it++)
-    // {
-    //     std::cout << *it << " "; //print
-    //     tmp.push_back(*it);
-    //     this->vectors.push_back(tmp); //make every int in a vectore and push it to "vectors"
-    //     tmp.clear();
-    // }
-    
+    std::cout << "Let's Start having fun\n";
+    (void)khalil;
 }
+
+
 int main(int ac, char **av)
 {
     
-    PmergeMe khalil;
-    // std::vector<int> vec;
+    
     if (ac > 1)
     {
         try
         {
+            PmergeMe khalil;
+            
             khalil.parsing(ac, av);
-            khalil.printf_before_line(khalil);
+            khalil.print_stack(khalil);
+            MergeInsert_vec(khalil);
         }
         catch(const std::exception& e)
         {
@@ -45,7 +41,7 @@ int main(int ac, char **av)
     }
     else
     {
-        std::cerr << "bad input \n";
+        std::cerr << "Argument sequence incorrect\n";
         return 1;
     }
     return 0;
