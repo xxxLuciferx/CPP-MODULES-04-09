@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:34:35 by khaimer           #+#    #+#             */
-/*   Updated: 2024/05/08 22:52:59 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/05/09 22:49:28 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,44 @@ void    PmergeMe::MergeInsert_vec(PmergeMe Data)
 	    Data.vec_pairs.push_back(std::make_pair(Data.Before[i], Data.Before[i + 1]));
 	for (size_t i = 0; i < Data.vec_pairs.size(); i++)
 	{
-		if (Data.vec_pairs[i].first > Data.vec_pairs[i].second)
+		if (Data.vec_pairs[i].first < Data.vec_pairs[i].second)
 			std::swap(Data.vec_pairs[i].first , Data.vec_pairs[i].second);
 	}
-		// std::cout << Data.Remain;
-		// std::cout << std::endl;
+		// std::cout << "In Pairs : \n";
 	    // for (std::vector<std::pair<int, int> >::iterator it = Data.vec_pairs.begin(); it != Data.vec_pairs.end(); ++it)
 	    // {
 	    //     std::cout << "(" << it->first << ", " << it->second << ") ";
 	    // }
-	
+		// std::cout << std::endl;
+		// std::cout << std::endl;
+		// std::cout << std::endl;
+		std::sort(Data.vec_pairs.begin(), Data.vec_pairs.end());
+	    // for (std::vector<std::pair<int, int> >::iterator it = Data.vec_pairs.begin(); it != Data.vec_pairs.end(); ++it)
+	    // {
+	    //     std::cout << "(" << it->first << ", " << it->second << ") ";
+	    // }
+		// std::cout << std::endl;
+		// std::cout << std::endl;
+		// std::cout << std::endl;
+		std::vector<int> ve_main;
+		std::vector<int> ve_peind;
+		for (size_t i = 0; i < Data.vec_pairs.size(); i++)
+		{
+			ve_main.push_back(Data.vec_pairs[i].first);
+			ve_peind.push_back(Data.vec_pairs[i].second);
+		}
+		// for (size_t i = 0; i < ve_main.size(); i++)
+		// {
+		// 	std::cout << ve_main[i] << " ";
+		// }
+		// std::cout << std::endl;
+		// for (size_t i = 0; i < ve_peind.size(); i++)
+		// {
+		// 	std::cout << ve_peind[i] << " ";
+		// }
+		
+		
+		
 }
 
 void    PmergeMe::print_stack(PmergeMe Data)
