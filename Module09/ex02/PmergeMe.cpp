@@ -6,137 +6,111 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:34:35 by khaimer           #+#    #+#             */
-/*   Updated: 2024/05/12 17:26:21 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/05/12 22:24:55 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-void    PmergeMe::MergeInsert_vec(PmergeMe Data)
-{
-    std::cout << "\nLet's Start having fun\n\n\n";
+PmergeMe::PmergeMe() {}
 
-	
-	// for (std::vector<int >::iterator it = Data.Before.begin(); it != Data.Before.end(); it++)
-    // {
-    // 	std::vector<int> tmp;
-    //     tmp.push_back(*it);
-    //     Data.Before.push_back(tmp); //make every int in a vector and push it to "Before"
-    // }
-	
-	// for (size_t i = 0; i < Data.Before.size(); ++i) //Print the vector
-    //         std::cout << Data.Before[i] << " ";
-			
+PmergeMe::PmergeMe(const PmergeMe &other) 
+{
+	this->Before = other.Before;
+	this->vec_pairs = other.vec_pairs;
+	this->deq_pairs = other.deq_pairs;
+	this->Remain = other.Remain;
+}
+
+PmergeMe& PmergeMe::operator=(const PmergeMe &other)
+{
+	if (this != &other) 
+	{
+		this->Before = other.Before;
+		this->vec_pairs = other.vec_pairs;
+		this->deq_pairs = other.deq_pairs;
+		this->Remain = other.Remain;
+    }
+    return *this;
+}
+
+
+
+void PmergeMe::insertWithLowerBound_vec(std::vector<int>& main, std::vector<int>& peind)
+{
+    for (size_t i = 0; i < peind.size(); ++i) 
+    {
+        std::vector<int>::iterator it = std::lower_bound(main.begin(), main.end(), peind[i]);
+        main.insert(it, peind[i]);
+    }
+}
+
+void    PmergeMe::MergeInsert_vec(PmergeMe Data)
+{		
 	if (Data.Before.size() % 2 == 1)
 		Data.Remain = Data.Before[Data.Before.size() - 1];
 	for (size_t i = 0; i < Data.Before.size() - 1; i += 2)
-	    Data.vec_pairs.push_back(std::make_pair(Data.Before[i], Data.Before[i + 1]));
+	    Data.vec_pairs.push_back(std::make_pair(Data.Before[i], Data.Before[i + 1])); //TIME
+	double starting = clock();
 	for (size_t i = 0; i < Data.vec_pairs.size(); i++)
 	{
 		if (Data.vec_pairs[i].first < Data.vec_pairs[i].second)
 			std::swap(Data.vec_pairs[i].first , Data.vec_pairs[i].second);
 	}
-		// std::cout << "In Pairs : \n";
-	    // for (std::vector<std::pair<int, int> >::iterator it = Data.vec_pairs.begin(); it != Data.vec_pairs.end(); ++it)
-	    // {
-	    //     std::cout << "(" << it->first << ", " << it->second << ") ";
-	    // }
-		// std::cout << std::endl;
-		// std::cout << std::endl;
-		// std::cout << std::endl;
-
-
-		
-		std::sort(Data.vec_pairs.begin(), Data.vec_pairs.end());
-
-
-
-		
-	    // for (std::vector<std::pair<int, int> >::iterator it = Data.vec_pairs.begin(); it != Data.vec_pairs.end(); ++it)
-	    // {
-	    //     std::cout << "(" << it->first << ", " << it->second << ") ";
-	    // }
-		// std::cout << std::endl;
-		// std::cout << std::endl;
-		// std::cout << std::endl;
-		std::vector<int> ve_main;
-		std::vector<int> ve_peind;
-		for (size_t i = 0; i < Data.vec_pairs.size(); i++)
-		{
-			ve_main.push_back(Data.vec_pairs[i].first);
-			ve_peind.push_back(Data.vec_pairs[i].second);
-		}
-		// std::cout << std::endl;
-		// for (size_t i = 0; i < ve_peind.size(); i++)
-		// {
-		// 	std::cout << ve_peind[i] << " ";
-		// }
-		// partition(ve_main); 
-		// std::cout << "\nWESH A BATAL\n";
-		// for (size_t i = 0; i < ve_main.size(); i++)
-		// {
-		// 	std::cout << ve_main[i] << " ";
-		// }
-		insertWithLowerBound(ve_main, ve_peind);
-		for (size_t i = 0; i < ve_main.size(); i++)
-		{
-			std::cout << ve_main[i] << " ";
-		}
-		std::cout << "The array is sorted\n";
+	std::sort(Data.vec_pairs.begin(), Data.vec_pairs.end());
+	std::vector<int> ve_main;
+	std::vector<int> ve_peind;
+	for (size_t i = 0; i < Data.vec_pairs.size(); i++)
+	{
+		ve_main.push_back(Data.vec_pairs[i].first);
+		ve_peind.push_back(Data.vec_pairs[i].second);
+	}
+	insertWithLowerBound_vec(ve_main, ve_peind);
+	double ending = clock();
+	double time = ((double)(ending - starting) / CLOCKS_PER_SEC) * 1000000;;
+	std::cout << "After : ";
+	for (size_t i = 0; i < ve_main.size(); i++)
+	{
+		std::cout << ve_main[i] << " ";
+	}
+	std::cout << std::endl;
+	std::cout << "Time to process a range of elements of " << Data.Before.size() << " elements with std::vector : " << time << " us" << std::endl;
 }
 
-void PmergeMe::insertWithLowerBound(std::vector<int>& first, std::vector<int>& second) {
-    for (size_t i = 0; i < second.size(); ++i) 
+void    PmergeMe::MergeInsert_deq(PmergeMe Data)
+{		
+	if (Data.Before.size() % 2 == 1)
+		Data.Remain = Data.Before[Data.Before.size() - 1];
+	for (size_t i = 0; i < Data.Before.size() - 1; i += 2)
+	    Data.deq_pairs.push_back(std::make_pair(Data.Before[i], Data.Before[i + 1])); //SAME
+	double starting = clock();
+	for (size_t i = 0; i < Data.deq_pairs.size(); i++)
+	{
+		if (Data.deq_pairs[i].first < Data.deq_pairs[i].second)
+			std::swap(Data.deq_pairs[i].first , Data.deq_pairs[i].second);
+	}
+	std::sort(Data.deq_pairs.begin(), Data.deq_pairs.end());
+	std::deque<int> ve_main;
+	std::deque<int> ve_peind;
+	for (size_t i = 0; i < Data.deq_pairs.size(); i++)
+	{
+		ve_main.push_back(Data.deq_pairs[i].first);
+		ve_peind.push_back(Data.deq_pairs[i].second);
+	}
+	insertWithLowerBound_deq(ve_main, ve_peind);
+	double ending = clock();
+	double time = ((double)(ending - starting) / CLOCKS_PER_SEC) * 1000000;
+	std::cout << "Time to process a range of elements of " << Data.Before.size() << " elements with std::deque : " << time << " us" << std::endl;
+}
+
+void PmergeMe::insertWithLowerBound_deq(std::deque<int>& main, std::deque<int>& peind)
+{
+    for (size_t i = 0; i < peind.size(); ++i) 
     {
-        if (second[i] == -1)
-            continue;
-        std::vector<int>::iterator it = std::lower_bound(first.begin(), first.end(), second[i]);
-        
-        first.insert(it, second[i]);
+        std::deque<int>::iterator it = std::lower_bound(main.begin(), main.end(), peind[i]);
+        main.insert(it, peind[i]);
     }
 }
-
-// void PmergeMe::sortPlace(const std::vector<int> &left, const std::vector<int> &right, std::vector<int> &arr) //NEW
-// {
-
-//     int i = 0, j = 0, k = 0;
-//     int n1 = left.size();
-//     int n2 = right.size();
-
-//     while (i < n1 && j < n2) {
-//         if (left[i] <= right[j]) {
-//             arr[k++] = left[i++];
-//         } else {
-//             arr[k++] = right[j++];
-//         }
-//     }
-
-//     while (i < n1) {
-//         arr[k++] = left[i++];
-//     }
-
-//     while (j < n2) {
-//         arr[k++] = right[j++];
-//     }
-// }
-
-// void PmergeMe::partition(std::vector<int> &arr) //NEW
-// {
-//     int size = arr.size();
-//     if (size <= 1)
-//         return;
-//     else 
-// 	{
-//         int mid = size / 2;
-//         std::vector<int> left(arr.begin(), arr.begin() + mid);
-//         std::vector<int> right(arr.begin() + mid, arr.end());
-
-//         partition(left);
-//         partition(right);
-        
-//         sortPlace(left, right, arr);
-//     }
-// }
 
 void    PmergeMe::print_stack(PmergeMe Data)
 {
@@ -185,3 +159,5 @@ void    PmergeMe::parsing(int ac, char **av)
 	        }
             check_for_dup(this->Before);
 }
+
+PmergeMe::~PmergeMe(){}

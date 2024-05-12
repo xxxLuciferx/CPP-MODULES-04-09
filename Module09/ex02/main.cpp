@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:34:31 by khaimer           #+#    #+#             */
-/*   Updated: 2024/05/08 21:27:15 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/05/12 18:29:02 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main(int ac, char **av)
             Data.parsing(ac, av);
             Data.print_stack(Data);
             Data.MergeInsert_vec(Data);
+            Data.MergeInsert_deq(Data);
         }
         catch(const std::exception& e)
         {

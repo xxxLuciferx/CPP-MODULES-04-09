@@ -10,7 +10,7 @@ SRC = main.cpp PmergeMe.cpp
 
 obj = ${SRC:%.cpp=%.o}
 
-NAME : ${obj}
+NAME : ${obj} $(NAME)
 
 all : $(NAME)
 
