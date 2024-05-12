@@ -2,21 +2,25 @@ NAME = PmergeMe
 
 CC = c++
 
-FLAGS	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 RM = rm -rf
 
 SRC = main.cpp PmergeMe.cpp
 
+obj = ${SRC:%.cpp=%.o}
+
+NAME : ${obj}
+
 all : $(NAME)
 
-$(NAME) : $(SRC)
-	$(CC) $(FLAGS) $(SRC) -o $(NAME)
+$(NAME) : $(obj)
+	$(CC) $(CXXFLAGS) $(obj) -o $(NAME)
 
 clean :
-	$(RM) $(NAME)
+	$(RM) $(obj)
 
-fclean :
+fclean : clean
 	$(RM) $(NAME)
 
 re : clean all

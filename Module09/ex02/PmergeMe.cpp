@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:34:35 by khaimer           #+#    #+#             */
-/*   Updated: 2024/05/09 22:49:28 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/05/12 17:26:21 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,14 @@ void    PmergeMe::MergeInsert_vec(PmergeMe Data)
 		// std::cout << std::endl;
 		// std::cout << std::endl;
 		// std::cout << std::endl;
+
+
+		
 		std::sort(Data.vec_pairs.begin(), Data.vec_pairs.end());
+
+
+
+		
 	    // for (std::vector<std::pair<int, int> >::iterator it = Data.vec_pairs.begin(); it != Data.vec_pairs.end(); ++it)
 	    // {
 	    //     std::cout << "(" << it->first << ", " << it->second << ") ";
@@ -59,19 +66,77 @@ void    PmergeMe::MergeInsert_vec(PmergeMe Data)
 			ve_main.push_back(Data.vec_pairs[i].first);
 			ve_peind.push_back(Data.vec_pairs[i].second);
 		}
-		// for (size_t i = 0; i < ve_main.size(); i++)
-		// {
-		// 	std::cout << ve_main[i] << " ";
-		// }
 		// std::cout << std::endl;
 		// for (size_t i = 0; i < ve_peind.size(); i++)
 		// {
 		// 	std::cout << ve_peind[i] << " ";
 		// }
-		
-		
-		
+		// partition(ve_main); 
+		// std::cout << "\nWESH A BATAL\n";
+		// for (size_t i = 0; i < ve_main.size(); i++)
+		// {
+		// 	std::cout << ve_main[i] << " ";
+		// }
+		insertWithLowerBound(ve_main, ve_peind);
+		for (size_t i = 0; i < ve_main.size(); i++)
+		{
+			std::cout << ve_main[i] << " ";
+		}
+		std::cout << "The array is sorted\n";
 }
+
+void PmergeMe::insertWithLowerBound(std::vector<int>& first, std::vector<int>& second) {
+    for (size_t i = 0; i < second.size(); ++i) 
+    {
+        if (second[i] == -1)
+            continue;
+        std::vector<int>::iterator it = std::lower_bound(first.begin(), first.end(), second[i]);
+        
+        first.insert(it, second[i]);
+    }
+}
+
+// void PmergeMe::sortPlace(const std::vector<int> &left, const std::vector<int> &right, std::vector<int> &arr) //NEW
+// {
+
+//     int i = 0, j = 0, k = 0;
+//     int n1 = left.size();
+//     int n2 = right.size();
+
+//     while (i < n1 && j < n2) {
+//         if (left[i] <= right[j]) {
+//             arr[k++] = left[i++];
+//         } else {
+//             arr[k++] = right[j++];
+//         }
+//     }
+
+//     while (i < n1) {
+//         arr[k++] = left[i++];
+//     }
+
+//     while (j < n2) {
+//         arr[k++] = right[j++];
+//     }
+// }
+
+// void PmergeMe::partition(std::vector<int> &arr) //NEW
+// {
+//     int size = arr.size();
+//     if (size <= 1)
+//         return;
+//     else 
+// 	{
+//         int mid = size / 2;
+//         std::vector<int> left(arr.begin(), arr.begin() + mid);
+//         std::vector<int> right(arr.begin() + mid, arr.end());
+
+//         partition(left);
+//         partition(right);
+        
+//         sortPlace(left, right, arr);
+//     }
+// }
 
 void    PmergeMe::print_stack(PmergeMe Data)
 {
