@@ -6,7 +6,7 @@
 /*   By: khaimer <khaimer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 18:34:38 by khaimer           #+#    #+#             */
-/*   Updated: 2024/05/12 22:23:59 by khaimer          ###   ########.fr       */
+/*   Updated: 2024/05/12 23:46:36 by khaimer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ class PmergeMe
         void    MergeInsert_deq(PmergeMe khalil);
         void    insertWithLowerBound_vec(std::vector<int>& main, std::vector<int>& peind);
         void    insertWithLowerBound_deq(std::deque<int>& main, std::deque<int>& peind);
+
+        
+	    // void    ford_jhonson(std::deque<int> ve_main);
+        // void    sortPlaces(const std::deque<int> &left, const std::deque<int> &right, std::deque<int> &arr);
 
         ~PmergeMe();
 };
